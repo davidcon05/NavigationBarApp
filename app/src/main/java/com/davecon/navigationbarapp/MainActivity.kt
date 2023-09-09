@@ -37,7 +37,7 @@ data class BottomNavigationItem(
     val selectedIcon: ImageVector,
     val unselectedIcon: ImageVector,
     val hasNews: Boolean,
-    val bandgeCount: Int? = null
+    val badgeCount: Int? = null
 )
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -61,7 +61,7 @@ class MainActivity : ComponentActivity() {
                         selectedIcon = Icons.Filled.Email,
                         unselectedIcon = Icons.Outlined.Email,
                         hasNews = false,
-                        bandgeCount = 12
+                        badgeCount = 12
                     ),
                     BottomNavigationItem(
                         title = "Settings",
@@ -94,9 +94,9 @@ class MainActivity : ComponentActivity() {
                                         icon = {
                                             BadgedBox(
                                                 badge = {
-                                                    if (item.bandgeCount != null) {
+                                                    if (item.badgeCount != null) {
                                                         Badge {
-                                                            Text(text = item.bandgeCount.toString())
+                                                            Text(text = item.badgeCount.toString())
                                                         }
                                                     } else if (item.hasNews) {
                                                         Badge()
