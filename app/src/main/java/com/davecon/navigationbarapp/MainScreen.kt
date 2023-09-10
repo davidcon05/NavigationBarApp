@@ -34,11 +34,6 @@ fun MainScreen() {
         }
     ) { innerPadding ->
         val padding = innerPadding
-        /**
-         * TODO: Follow the tutorial implementation to see what we get,
-         * the goal is to implement FILLED and OUTLINED buttons as well
-         * as navigate to unique screens for each button
-         */
         MainScreenNavigationConfigurations(navController)
     }
 }

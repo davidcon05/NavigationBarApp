@@ -1,6 +1,9 @@
 package com.davecon.navigationbarapp.ui.navigation
 
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.material3.Badge
+import androidx.compose.material3.BadgedBox
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -24,6 +27,7 @@ fun BottomNavigation(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RowScope.AddItem(
     screen: BottomNavItem,
@@ -34,9 +38,6 @@ fun RowScope.AddItem(
         label = {
             Text(stringResource(id = screen.title))
         },
-        icon = {
-            Icon(imageVector = screen.selectedIcon, contentDescription = screen.contentDescription)
-        },
         selected = currentRoute == screen.route,
         alwaysShowLabel = true,
         onClick = {
@@ -44,6 +45,25 @@ fun RowScope.AddItem(
                 navController.navigate(screen.route)
             }
         },
+        icon = {
+            BadgedBox(badge = {
+                if (screen.badgeCount != null) {
+                    Badge {
+                        Text(text = screen.badgeCount.toString())
+                    }
+                } else if (screen.hasNews) {
+                    Badge()
+                }
+            }
+            ) {
+                Icon(
+                    imageVector = if (currentRoute == screen.route) {
+                        screen.selectedIcon
+                    } else screen.unselectedIcon,
+                    contentDescription = screen.contentDescription
+                )
+            }
+        }
     )
 }
 
@@ -52,42 +72,3 @@ private fun currentRoute(navController: NavHostController): String? {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     return navBackStackEntry?.destination?.route
 }
-
-/**
- * {
- *                             NavigationBar {
- *                                 items.forEachIndexed { index, item ->
- *                                     NavigationBarItem(
- *                                         selected = selectedItemIndex == index,
- *                                         onClick = {
- *                                             selectedItemIndex = index
- *                                             //navController.navigate(item.title)
- *                                         },
- *                                         label = {
- *                                             Text(text = item.title)
- *                                         },
- *                                         icon = {
- *                                             BadgedBox(
- *                                                 badge = {
- *                                                     if (item.badgeCount != null) {
- *                                                         Badge {
- *                                                             Text(text = item.badgeCount.toString())
- *                                                         }
- *                                                     } else if (item.hasNews) {
- *                                                         Badge()
- *                                                     }
- *                                                 }
- *                                             ) {
- *                                                 Icon(
- *                                                     imageVector = if (index == selectedItemIndex) {
- *                                                         item.selectedIcon
- *                                                     } else item.unselectedIcon,
- *                                                     contentDescription = item.title
- *                                                 )
- *                                             }
- *                                         }
- *                                     )
- *                                 }
- *                             }
- *                         }
- */
