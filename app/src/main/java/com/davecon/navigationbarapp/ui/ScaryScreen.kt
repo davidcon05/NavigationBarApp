@@ -8,23 +8,25 @@ import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.rememberLottieComposition
-import com.davecon.navigationbarapp.R
-
+import com.davecon.navigationbarapp.ui.navigation.BottomNavItem
 
 @Composable
-fun HomeScreen(modifier: Modifier) {
-
-    val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.pumpkinstein))
+fun ScaryScreen(
+    scaryAnimation: BottomNavItem,
+    modifier: Modifier
+) {
+    val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(scaryAnimation.lottieAnimationId))
 
     LottieAnimation(
         modifier = modifier,
         composition = composition,
         iterations = LottieConstants.IterateForever,
     )
+
 }
 
 @Composable
 @Preview
-fun HomeScreenPreview() {
-    HomeScreen(modifier = Modifier)
+fun ScaryScreenPreview() {
+    ScaryScreen(scaryAnimation = BottomNavItem.Home, modifier = Modifier)
 }

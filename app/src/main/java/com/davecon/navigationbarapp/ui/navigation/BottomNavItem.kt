@@ -21,36 +21,36 @@ sealed class BottomNavItem(
     val hasNews: Boolean,
     val badgeCount: Int? = null,
     val contentDescription: String? = null,
-    val lottieAnimationView: Int
+    val lottieAnimationId: Int
 ) {
     object Home : BottomNavItem(
-        route = "home",
+        route = "Frankendroid",
         title = home,
         selectedIcon = Icons.Filled.Home,
         unselectedIcon = Icons.Outlined.Home,
         hasNews = false,
         contentDescription = "Home Screen",
-        lottieAnimationView = R.raw.pumpkinstein
+        lottieAnimationId = R.raw.pumpkinstein
     )
 
     object Emails : BottomNavItem(
-        route = "emails",
+        route = "Ghost",
         title = email,
         selectedIcon = Icons.Filled.Email,
         unselectedIcon = Icons.Outlined.Email,
         hasNews = false,
         badgeCount = 12,
         contentDescription = "Email Screen",
-        lottieAnimationView = R.raw.ghost
+        lottieAnimationId = R.raw.ghost
     )
 
     object Settings : BottomNavItem(
-        route = "settings",
+        route = "Pumpkins",
         title = settings,
         selectedIcon = Icons.Filled.Settings,
         unselectedIcon = Icons.Outlined.Settings,
         hasNews = true,
         contentDescription = "Settings Screen",
-        lottieAnimationView = R.raw.three_pumpkins
+        lottieAnimationId = R.raw.three_pumpkins
     )
 }
