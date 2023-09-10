@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.davecon.navigationbarapp"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.davecon.navigationbarapp"
@@ -50,7 +50,7 @@ android {
 }
 
 dependencies {
-    val nav_version = "2.4.0-alpha10"
+    val nav_version = "2.7.2"
     val compose_ui_version = "1.1.1"
     val compose_bom_version = "2023.03.00"
     val compose_activity_version = "1.7.2"
@@ -59,7 +59,9 @@ dependencies {
     val junit_version = "4.13.2"
     val test_junit_version = "1.1.5"
     val espresso_version = "3.5.1"
+    val lottieVersion = "6.0.0"
 
+    implementation("com.airbnb.android:lottie-compose:$lottieVersion")
     implementation("androidx.core:core-ktx:$core_ktx_version")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$ktx_runtime_version")
     implementation("androidx.activity:activity-compose:$compose_activity_version")
@@ -68,8 +70,7 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics:$compose_ui_version")
     implementation("androidx.compose.ui:ui-tooling-preview:$compose_ui_version")
     implementation("androidx.compose.material3:material3:$compose_ui_version")
-    implementation("androidx.compose.material3:material3-icons-extended")
-    implementation("androidx.compose.navigation:navigation-compose:$nav_version")
+    implementation("androidx.navigation:navigation-compose:$nav_version")
     implementation("androidx.compose.material3:material3-window-size-class:$compose_ui_version")
 
     // Test
@@ -77,8 +78,8 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:$test_junit_version")
     androidTestImplementation("androidx.test.espresso:espresso-core:$espresso_version")
     androidTestImplementation(platform("androidx.compose:compose-bom:$compose_bom_version"))
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4$compose_ui_version")
-    debugImplementation("androidx.compose.ui:ui-tooling$compose_ui_version")
-    debugImplementation("androidx.compose.ui:ui-test-manifest$compose_ui_version")
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:$compose_ui_version")
+    debugImplementation("androidx.compose.ui:ui-tooling:$compose_ui_version")
+    debugImplementation("androidx.compose.ui:ui-test-manifest:$compose_ui_version")
     androidTestImplementation("androidx.navigation:navigation-testing:$nav_version")
 }
