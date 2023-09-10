@@ -2,10 +2,6 @@ package com.davecon.navigationbarapp
 
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -18,9 +14,6 @@ import com.davecon.navigationbarapp.ui.navigation.BottomNavigation
 fun MainScreen() {
 
     val navController = rememberNavController()
-    var selectedItemIndex by rememberSaveable {
-        mutableStateOf(0)
-    }
 
     val items = listOf(
         BottomNavItem.Home,
