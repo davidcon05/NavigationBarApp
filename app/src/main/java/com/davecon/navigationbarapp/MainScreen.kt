@@ -11,7 +11,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.davecon.navigationbarapp.ui.ScaryScreen
 import com.davecon.navigationbarapp.ui.navigation.BottomNavItem
 import com.davecon.navigationbarapp.ui.navigation.BottomNavigation
 

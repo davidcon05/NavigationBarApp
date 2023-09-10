@@ -1,7 +1,11 @@
-package com.davecon.navigationbarapp.ui
+package com.davecon.navigationbarapp
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.airbnb.lottie.compose.LottieAnimation
@@ -16,13 +20,17 @@ fun ScaryScreen(
     modifier: Modifier
 ) {
     val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(scaryAnimation.lottieAnimationId))
-
-    LottieAnimation(
-        modifier = modifier,
-        composition = composition,
-        iterations = LottieConstants.IterateForever,
-    )
-
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        LottieAnimation(
+            modifier = modifier,
+            composition = composition,
+            iterations = LottieConstants.IterateForever,
+        )
+    }
 }
 
 @Composable
